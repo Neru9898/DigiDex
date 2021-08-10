@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-image: url(https://wallpapermemory.com/uploads/701/digimon-adventure-background-full-hd-253308.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .App-logo {
