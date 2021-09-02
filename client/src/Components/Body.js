@@ -6,7 +6,7 @@ import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Button } from "@material-ui/core";
 import { Grid, Typography, Slide } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import "./Body.css";
 
 export const Body = () => {
   const [digiList, setDigiList] = useState([]);
@@ -15,16 +15,18 @@ export const Body = () => {
   useEffect(() => {
     axios.get("https://digimon-api.vercel.app/api/digimon").then((res) => {
       setDigiList(res.data);
+      setIsLoading(false);
     });
   }, []);
 
+  console.log(digiList);
   const [currentDigimon, setCurrentDigimon] = useState(0);
   const [slideIn, setSlideIn] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [slideDir, setslideDir] = useState("down");
   const content = digiList[currentDigimon];
   const numImg = digiList.length;
 
-  console.log(digiList);
   const onArrowClick = (dir) => {
     const increment = dir === "left" ? -1 : 1;
     const newIndex = (currentDigimon + increment + numImg) % numImg;
@@ -40,27 +42,32 @@ export const Body = () => {
 
   return (
     <>
-      <Grid
-        container
-        spacing={3}
-        style={{ margin: "50px", position: "relative" }}
-      >
-        <Grid item xs>
-          <ArrowBackIosIcon onClick={() => onArrowClick("left")} />
-        </Grid>{" "}
-        <Slide direction={slideDir} in={slideIn}>
-          <Grid item xs={6}>
-            <img
-              src={digiList[currentDigimon].img}
-              alt="Digimon"
-              style={{ height: "40vh", width: "40wh", borderRadius: "40%" }}
-            />
+      {isLoading ? (
+        <>
+          <Typography variant="h2">Loading</Typography>
+          <img src="https://image.pngaaa.com/80/1332080-middle.png" />
+        </>
+      ) : (
+        <>
+          <Grid container spacing={3} className="Dex">
+            <ArrowBackIosIcon onClick={() => onArrowClick("left")} />
+
+            <Slide direction={slideDir} in={slideIn}>
+              <Grid item xs={6}>
+                <img
+                  src={digiList[currentDigimon].img}
+                  alt="Digimon"
+                  style={{ height: "40vh", width: "40wh", borderRadius: "40%" }}
+                />
+              </Grid>
+            </Slide>
+            <ArrowForwardIosIcon onClick={() => onArrowClick("right")} />
           </Grid>
-        </Slide>
-        <Grid item xs>
-          <ArrowForwardIosIcon onClick={() => onArrowClick("right")} />
-        </Grid>
-      </Grid>
+          <Typography className="NameText" variant="h2">
+            {digiList[currentDigimon].name}
+          </Typography>
+        </>
+      )}
     </>
   );
 };
