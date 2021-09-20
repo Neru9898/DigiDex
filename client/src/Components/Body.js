@@ -49,20 +49,17 @@ export const Body = () => {
         </>
       ) : (
         <>
-          <Grid container spacing={3} className="Dex">
-            <ArrowBackIosIcon onClick={() => onArrowClick("left")} />
+          <ArrowBackIosIcon onClick={() => onArrowClick("left")} />
 
-            <Slide direction={slideDir} in={slideIn}>
-              <Grid item xs={6}>
-                <img
-                  src={digiList[currentDigimon].img}
-                  alt="Digimon"
-                  style={{ height: "40vh", width: "40wh", borderRadius: "40%" }}
-                />
-              </Grid>
-            </Slide>
-            <ArrowForwardIosIcon onClick={() => onArrowClick("right")} />
-          </Grid>
+          <Slide direction={slideDir} in={slideIn}>
+            <img
+              src={digiList[currentDigimon].img}
+              alt="Digimon"
+              style={{ height: "40vh", width: "40wh", borderRadius: "40%" }}
+            />
+          </Slide>
+          <ArrowForwardIosIcon onClick={() => onArrowClick("right")} />
+
           <Typography className="NameText" variant="h2">
             {digiList[currentDigimon].name}
           </Typography>
