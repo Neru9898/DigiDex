@@ -1,4 +1,5 @@
-/* .Dex {
+/* 
+.Dex {
   margin: 40px;
   padding: 50px;
   align-items: center;
@@ -7,10 +8,11 @@
   margin-top: 15px;
   text-align: left;
   padding-left: 20vw;
-} */
+} 
+*/
 
 .mainWrapper {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   height: 45vh;
   width: 65vw;
   position: relative;
@@ -21,7 +23,7 @@
   align-items: center;
 }
 .box {
-  border: solid 10px purple;
+  /* border: solid 10px purple; */
   height: 100%;
   width: 55%;
 }
@@ -31,9 +33,19 @@
   width: 100%;
 }
 .arrowBox {
-  border: solid 1px white;
+  /* border: solid 1px white; */
   height: 25%;
   width: 50%;
   cursor: pointer;
   font-size: 65px;
+  font-weight: 500;
+  color: white;
+}
+h2 {
+  font-weight: 400;
+  color: white;
+}
+h4 {
+  font-weight: 400;
+  color: white;
 }
