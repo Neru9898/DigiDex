@@ -1,11 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Button } from "@material-ui/core";
-import { Grid, Typography, Slide } from "@material-ui/core";
 import "./Body.css";
 
 export const Body = () => {
@@ -44,26 +39,20 @@ export const Body = () => {
     <>
       {isLoading ? (
         <>
-          <Typography variant="h2">Loading</Typography>
           <img src="https://image.pngaaa.com/80/1332080-middle.png" />
         </>
       ) : (
-        <>
-          <ArrowBackIosIcon onClick={() => onArrowClick("left")} />
-
-          <Slide direction={slideDir} in={slideIn}>
-            <img
-              src={digiList[currentDigimon].img}
-              alt="Digimon"
-              style={{ height: "40vh", width: "40wh", borderRadius: "40%" }}
-            />
-          </Slide>
-          <ArrowForwardIosIcon onClick={() => onArrowClick("right")} />
-
-          <Typography className="NameText" variant="h2">
-            {digiList[currentDigimon].name}
-          </Typography>
-        </>
+        <div className="mainWrapper">
+          <div className="arrowBox" onClick={() => onArrowClick("left")}>
+            LEFT
+          </div>
+          <img
+            className="digimonImage"
+            src={digiList[currentDigimon].img}
+            alt="Digimon"
+          />
+          <div onClick={() => onArrowClick("right")}>right</div>
+        </div>
       )}
     </>
   );
