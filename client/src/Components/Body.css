@@ -18,15 +18,21 @@
   margin-top: -50px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
-.digimonImage {
+.imageBox {
+  border: solid 10px purple;
+}
+img {
   border: solid 10px purple;
   border-radius: 50%;
+  height: 400px;
+  width: 400px;
 }
 .arrowBox {
   border: solid 1px white;
-  height: 25px;
-  width: 25px;
-  padding: 10px;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  font-size: 65px;
 }
