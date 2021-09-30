@@ -46,12 +46,13 @@ export const Body = () => {
           <div className="arrowBox" onClick={() => onArrowClick("left")}>
             {"<"}
           </div>
-          <div className="imageBox">
+          <div className="box">
             <img
               className="digimonImage"
               src={digiList[currentDigimon].img}
               alt="Digimon"
             />
+            <h2> {digiList[currentDigimon].name}</h2>
           </div>
           <div className="arrowBox" onClick={() => onArrowClick("right")}>
             {">"}
